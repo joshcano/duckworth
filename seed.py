@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
-from database import session, Dataset, PowerProduction, BatteryPercentageState, PowerFeedIn, PowerSelfConsumption, PowerPurchased, PowerConsumption
+from database import session, Dataset, PowerProduction, BatteryPercentageState, PowerFeedIn, PowerSelfConsumption,\
+    PowerPurchased, PowerConsumption
 
 dataset = Dataset()
 
@@ -20,8 +21,8 @@ with open(filepath) as fp:
       seriesname = sp[2].replace('"', '')
       seriesvalue = sp[3].replace('"', '')
 
-      n = session.query(Dataset).filter_by(name = name).first()
-      # 2017 4/8 12am - 12pm
+      n = session.query(Dataset).filter_by(name=name).first()
+
       if n:
         print(n.name)
       else:
