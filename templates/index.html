@@ -1,1 +1,13 @@
-<h1>home page</h1>
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>home page</h1>
+
+  {% for dataset in datasets %}
+    <a href='/datasets/{{dataset.id}}'>{{dataset.name}}</a>
+  {% endfor %}
+
+{% endblock %}
+
+
+

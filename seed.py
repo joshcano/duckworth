@@ -49,6 +49,6 @@ with open(filepath) as fp:
       else:
         print('couldnt find it') 
       session.commit()
-      session.close()
+      #session.close()
     line = fp.readline()
     cnt += 1
