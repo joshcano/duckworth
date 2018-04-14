@@ -5,3 +5,28 @@
 	height: 400px;
 	margin: 0 auto
 }
+
+body {
+	background-color: #d3d4d4;
+	/*color: whitesmoke;*/
+}
+
+.navbar {
+	background-color: #d3d4d4;
+	color: #9cd7f7
+}
+
+.row {
+	padding: 5px;
+}
+
+.panel-body {
+	background-color: cornflowerblue;
+}
+
+.battery-animation {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 100px;
+}
