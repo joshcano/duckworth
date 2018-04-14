@@ -21,6 +21,7 @@ with open(filepath) as fp:
       seriesvalue = sp[3].replace('"', '')
 
       n = session.query(Dataset).filter_by(name = name).first()
+      # 2017 4/8 12am - 12pm
       if n:
         print(n.name)
       else:

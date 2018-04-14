@@ -35,8 +35,43 @@
   })
   </script>
 
+	  <script>
+  $(function () {
+    var myChart = Highcharts.chart('container2', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Production"
+      },
+      xAxis: {
+       categories: {{ dataset.battery_percentage_state_time_plots|safe}}
+      },
+      yAxis: {
+       title: {
+         text: 'KWH'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Power Production',
+        data: {{ dataset.battery_percentage_state_plots }}
+      }]
+    });
+  })
+  </script>
+
   <b>ID: {{ dataset.id }}</b><br><b>Name: {{ dataset.name }}</b>
   <div id="container" style="width:100%; height:400px;"></div>
+  <div id="container2" style="width:100%; height:400px;"></div>
+
   
     <p>{{dataset.name}}</p> 
     <p>{{dataset.power_productions}}</p> 
