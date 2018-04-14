@@ -8,6 +8,7 @@
 
 body {
 	background-color: #d3d4d4;
+  text-align: center;
 }
 
 .navbar {
@@ -16,7 +17,7 @@ body {
 }
 
 .row {
-	padding: 5px;
+	padding: 15px;
 }
 
 .panel-body {
@@ -182,11 +183,11 @@ body {
   animation: liquid-2 2.25s infinite;
 }
 
-body {
-  padding-top: 30vh;
-  background: #efefef;
-  text-align: center;
-}
+/*body {*/
+  /*padding-top: 30vh;*/
+  /*background: #efefef;*/
+  /*text-align: center;*/
+/*}*/
 
 @keyframes power {
   0% {
