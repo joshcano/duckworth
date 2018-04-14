@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <script>
+  $(function () { 
+    var myChart = Highcharts.chart('container', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Production"
+      },
+      xAxis: {
+       categories: {{ dataset.power_production_time_plots|safe }}
+      },
+      yAxis: {
+       title: {
+         text: 'KWH'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Power Production',
+        data: {{ dataset.power_production_plots}}
+      }]
+    });
+  })
+  </script>
+
+  <b>ID: {{ dataset.id }}</b><br><b>Name: {{ dataset.name }}</b>
+  <div id="container" style="width:100%; height:400px;"></div>
+  
+    <p>{{dataset.name}}</p> 
+    <p>{{dataset.power_productions}}</p> 
+    <p>{{dataset.power_production_plots}}</p> 
+    <p>{{dataset.battery_percentage_states}}</p> 
+    <p>{{dataset.battery_percentage_state_plots}}</p> 
+    <p>{{dataset.power_feed_ins}}</p> 
+    <p>{{dataset.power_feed_in_plots}}</p> 
+    <p>{{dataset.power_self_consumptions}}</p> 
+    <p>{{dataset.power_self_consumption_plots}}</p> 
+    <p>{{dataset.power_purchaseds}}</p> 
+    <p>{{dataset.power_purchased_plots}}</p> 
+    <p>{{dataset.power_consumptions}}</p> 
+    <p>{{dataset.power_consumption_plots}}</p> 
+
+{% endblock %}

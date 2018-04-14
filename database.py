@@ -17,6 +17,48 @@ class Dataset(Base):
   power_purchaseds = relationship('PowerPurchased', backref='power_purchased')
   power_consumptions = relationship('PowerConsumption', backref='power_consumption')
 
+  @hybrid_property
+  def power_production_plots(self):
+    return [t.timeseriesvalue for t in self.power_productions]
+  @hybrid_property
+  def power_production_time_plots(self):
+    return [str(t.time) for t in self.power_productions]
+
+  @hybrid_property
+  def battery_percentage_state_plots(self):
+    return [t.timeseriesvalue for t in self.battery_percentage_states]
+  @hybrid_property
+  def battery_percentage_state_time_plots(self):
+    return [t.time for t in self.battery_percentage_states]
+
+  @hybrid_property
+  def power_feed_in_plots(self):
+    return [t.timeseriesvalue for t in self.power_feed_ins]
+  @hybrid_property
+  def power_feed_in_time_plots(self):
+    return [t.time for t in self.power_feed_ins]
+
+  @hybrid_property
+  def power_self_consumption_plots(self):
+    return [t.timeseriesvalue for t in self.power_self_consumptions]
+  @hybrid_property
+  def power_self_consumption_time_plots(self):
+    return [t.time for t in self.power_self_consumptions]
+
+  @hybrid_property
+  def power_purchased_plots(self):
+    return [t.timeseriesvalue for t in self.power_purchaseds]
+  @hybrid_property
+  def power_purchased_time_plots(self):
+    return [t.time for t in self.power_purchaseds]
+
+  @hybrid_property
+  def power_consumption_plots(self):
+    return [t.timeseriesvalue for t in self.power_consumptions]
+  @hybrid_property
+  def power_consumption_time_plots(self):
+    return [t.time for t in self.power_consumptions]
+
 class PowerProduction(Base):
   __tablename__ = 'power_production'
   id = Column(Integer, primary_key=True)
