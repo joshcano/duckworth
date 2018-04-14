@@ -1,4 +1,9 @@
+#general
+__pycache__
 .idea/
+.DS_Store
+b9c5abaa-28bd-4c7b-9632-01ca823fb585.csv
+.cache/
 
 # env files
 .env
