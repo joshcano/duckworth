@@ -31,6 +31,22 @@ body {
 	margin-bottom: 5px;
 }
 
+.img-responsive {
+  align-items: center;
+}
+
+.duckbucks {
+  display: inline-block;
+  margin: auto;
+  align-content: center;
+  float: none;
+}
+
+.h4 {
+  align-content: left;
+  text-align: center
+}
+
 /** BATTERY ANIMATION**/
 @keyframes load {
   0% {
