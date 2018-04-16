@@ -7,6 +7,10 @@ app = Flask(__name__)
 app.debug = True
 
 @app.route('/')
+def home():
+  return render_template('home.html')
+
+@app.route('/data')
 def index():
   return render_template('index.html', datasets = session.query(Dataset).all())
 

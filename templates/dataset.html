@@ -2,8 +2,9 @@
 
 {% block body %}
 
+
   <script>
-  $(function () { 
+  $(function () {
     var myChart = Highcharts.chart('container', {
       chart: {
         type: 'line'
@@ -35,17 +36,50 @@
   })
   </script>
 
-	  <script>
+  <script>
   $(function () {
     var myChart = Highcharts.chart('container2', {
       chart: {
         type: 'line'
       },
       title: {
-       text: "Power Production"
+       text: "Battery Percentage States"
       },
       xAxis: {
        categories: {{ dataset.battery_percentage_state_time_plots|safe}}
+      },
+      yAxis: {
+       title: {
+         text: 'Percent (%)'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Battery Percentage States',
+        data: {{ dataset.battery_percentage_state_plots }}
+      }]
+    });
+  })
+  </script>
+
+	<script>
+  $(function () {
+    var myChart = Highcharts.chart('container3', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Feed Ins"
+      },
+      xAxis: {
+       categories: {{ dataset.power_feed_in_time_plots|safe }}
       },
       yAxis: {
        title: {
@@ -61,30 +95,136 @@
         }
       },
       series: [{
-        name: 'Power Production',
-        data: {{ dataset.battery_percentage_state_plots }}
+        name: 'Power Feed In',
+        data: {{ dataset.power_feed_in_plots }}
       }]
     });
   })
   </script>
 
-  <b>ID: {{ dataset.id }}</b><br><b>Name: {{ dataset.name }}</b>
-  <div id="container" style="width:100%; height:400px;"></div>
-  <div id="container2" style="width:100%; height:400px;"></div>
+	<script>
+  $(function () {
+    var myChart = Highcharts.chart('container4', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Self Consumption"
+      },
+      xAxis: {
+       categories: {{ dataset.power_self_consumption_time_plots|safe }}
+      },
+      yAxis: {
+       title: {
+         text: 'KWH'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Power Self Consumption',
+        data: {{ dataset.power_self_consumption_plots }}
+      }]
+    });
+  })
+  </script>
+
+	<script>
+  $(function () {
+    var myChart = Highcharts.chart('container5', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Purchased"
+      },
+      xAxis: {
+       categories: {{ dataset.power_purchased_time_plots|safe }}
+      },
+      yAxis: {
+       title: {
+         text: 'KWH'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Power Purchased',
+        data: {{ dataset.power_purchased_plots }}
+      }]
+    });
+  })
+  </script>
+
+	<script>
+  $(function () {
+    var myChart = Highcharts.chart('container6', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+       text: "Power Consumption"
+      },
+      xAxis: {
+       categories: {{ dataset.power_consumption_time_plots|safe }}
+      },
+      yAxis: {
+       title: {
+         text: 'KWH'
+       }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Power Consumption',
+        data: {{ dataset.power_consumption_plots }}
+      }]
+    });
+  })
+  </script>
+
+
+
+
+	<b>ID: {{ dataset.id }}</b><br><b>Name: {{ dataset.name }}</b>
+	<div id="container" style="width:100%; height:400px;"></div>
+	<div id="container2" style="width:100%; height:400px;"></div>
+	<div id="container3" style="width:100%; height:400px;"></div>
+	<div id="container4" style="width:100%; height:400px;"></div>
+	<div id="container5" style="width:100%; height:400px;"></div>
+	<div id="container6" style="width:100%; height:400px;"></div>
 
   
-    <p>{{dataset.name}}</p> 
-    <p>{{dataset.power_productions}}</p> 
-    <p>{{dataset.power_production_plots}}</p> 
-    <p>{{dataset.battery_percentage_states}}</p> 
-    <p>{{dataset.battery_percentage_state_plots}}</p> 
-    <p>{{dataset.power_feed_ins}}</p> 
-    <p>{{dataset.power_feed_in_plots}}</p> 
-    <p>{{dataset.power_self_consumptions}}</p> 
-    <p>{{dataset.power_self_consumption_plots}}</p> 
-    <p>{{dataset.power_purchaseds}}</p> 
-    <p>{{dataset.power_purchased_plots}}</p> 
-    <p>{{dataset.power_consumptions}}</p> 
-    <p>{{dataset.power_consumption_plots}}</p> 
+	<p>{{dataset.name}}</p>
+	<p>{{dataset.power_productions}}</p>
+	<p>{{dataset.power_production_plots}}</p>
+	<p>{{dataset.battery_percentage_states}}</p>
+	<p>{{dataset.battery_percentage_state_plots}}</p>
+	<p>{{dataset.power_feed_ins}}</p>
+	<p>{{dataset.power_feed_in_plots}}</p>
+	<p>{{dataset.power_self_consumptions}}</p>
+	<p>{{dataset.power_self_consumption_plots}}</p>
+	<p>{{dataset.power_purchaseds}}</p>
+	<p>{{dataset.power_purchased_plots}}</p>
+	<p>{{dataset.power_consumptions}}</p>
+	<p>{{dataset.power_consumption_plots}}</p>
 
 {% endblock %}
